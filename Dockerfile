@@ -4,12 +4,13 @@ MAINTAINER Di Zhang <zhangdi_me@163.com>
 
 ADD ./sources.list /etc/apt/sources.list
 
+RUN apt-get update && \
+    apt-get install -y python-software-properties software-properties-common language-pack-en-base \
+        ntp build-essential supervisor wget
+
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
     apt-get update && \
     apt-get upgrade -y
-
-RUN apt-get install -y python-software-properties software-properties-common language-pack-en-base \
-      ntp build-essential supervisor wget
 
 RUN apt-get install -y apache2 apache2-utils
 
