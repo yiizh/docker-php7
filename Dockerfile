@@ -1,4 +1,4 @@
-FROM registry.extong.cn/extong/base:latest
+FROM ubuntu:14.04
 
 MAINTAINER Di Zhang <zhangdi_me@163.com>
 
@@ -7,7 +7,6 @@ ADD ./sources.list /etc/apt/sources.list
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
     apt-get update && \
     apt-get upgrade -y
-
 
 RUN apt-get install -y python-software-properties software-properties-common language-pack-en-base \
       ntp build-essential supervisor wget
