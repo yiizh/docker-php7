@@ -37,7 +37,8 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 
-RUN apt-get autoclean
+RUN apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 
