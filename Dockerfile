@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Di Zhang <zhangdi_me@163.com>
 
-ADD ./sources.list /etc/apt/sources.list
+
 
 RUN apt-get update && \
     apt-get install -y python-software-properties software-properties-common language-pack-en-base \
