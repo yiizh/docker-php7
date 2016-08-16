@@ -4,6 +4,9 @@ services: docker
 install:
   - git clone https://github.com/yiizh/docker-php7.git ~/docker-php7
 
+before_script:
+  - RUN sed -i 's/ADD ./sources.list /etc/apt/sources.list//g' ~/docker-php7/Dockerfile
+
 script:
   - docker build -t "yiizh/php7:latest" .
 
