@@ -1,0 +1,13 @@
+language: bash
+services: docker
+
+install:
+  - git clone https://github.com/yiizh/docker-php7.git ~/docker-php7
+
+script:
+  - docker build -t "yiizh/php7:latest" .
+
+after_script:
+  - docker images
+
+# vim:set et ts=2 sw=2:
