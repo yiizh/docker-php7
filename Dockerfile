@@ -2,8 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER Di Zhang <zhangdi_me@163.com>
 
-
-
 RUN apt-get update && \
     apt-get install -y python-software-properties software-properties-common language-pack-en-base \
         ntp build-essential supervisor wget
@@ -39,6 +37,8 @@ ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
+
+RUN curl -sS https://getcomposer.org/installer | php && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
 WORKDIR /var/www/html
 
