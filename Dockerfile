@@ -38,7 +38,7 @@ ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
+RUN wget https://getcomposer.org/composer.phar && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
 WORKDIR /var/www/html
 
